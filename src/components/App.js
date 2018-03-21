@@ -1,13 +1,23 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-class App extends Component {
+import Main from './Main';
+import Project from './Project';
+
+import { Provider } from 'react-redux';
+import store from '../store';
+
+export default class App extends React.Component {
   render() {
     return (
-      <div className="App">
-        <h1>Hello</h1>
-      </div>
+      <Provider store={store}>
+        <BrowserRouter>
+          <div>
+            <Route exact path="/" component={Main} />
+            <Route path="/projects/:slug" component={Project} />
+          </div>
+        </BrowserRouter>
+      </Provider>
     );
   }
 }
-
-export default App;
