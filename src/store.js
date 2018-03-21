@@ -7,9 +7,12 @@ import reducer from './reducer';
 export default createStore(
   reducer,
   // initial state
-  // {
-  //   birds: []
-  // },
+  {
+    visible: false,
+    positionX: 50,
+    positionY: 50,
+    projectKey: ''
+  },
   // before actions
   composeWithDevTools(applyMiddleware(thunk))
 );
